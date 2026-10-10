@@ -10,6 +10,14 @@
       "dependencies": {"bend-kit-json@0.3.0.0": "0xaaa10a97bf5ac6990143da2c863f8a3f"},
       "companion": false
     },
+    "math-dsl": {
+      "name": "bend-over-math-dsl",
+      "entry": "packages/math-dsl/math.bend",
+      "proof": "packages/math-dsl/PROOF.bend",
+      "consumers": ["packages/math-dsl/example.bend"],
+      "dependencies": {},
+      "companion": false
+    },
     "sqlite": {
       "name": "bend-over-sqlite",
       "entry": "packages/sqlite/sqlite.bend",

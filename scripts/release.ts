@@ -31,9 +31,9 @@ export async function prepare(id: keyof typeof config.packages, source: string):
 
 async function main() {
   const args=process.argv.slice(2), publish=args[0]==="publish";
-  if(!["check","publish"].includes(args[0]))throw new Error("Usage: bun scripts/release.ts check|publish [js-eval|sqlite]");
+  if(!["check","publish"].includes(args[0]))throw new Error("Usage: bun scripts/release.ts check|publish [js-eval|math-dsl|sqlite]");
   const ids=args.slice(1).length?args.slice(1):Object.keys(config.packages);
-  if(ids.some(id=>!(id in config.packages)) || new Set(ids).size!==ids.length)throw new Error("Choose js-eval, sqlite, or omit the package argument");
+  if(ids.some(id=>!(id in config.packages)) || new Set(ids).size!==ids.length)throw new Error("Choose js-eval, math-dsl, sqlite, or omit the package argument");
   const source=resolve(process.env.BEND_SOURCE??join(ROOT,".refs/bend"));
   await assertToolchain(source,process.env.BEND_CLI??"bend");
   if(publish&&(await run(["git","status","--porcelain"])))throw new Error("Publish requires a clean committed checkout");

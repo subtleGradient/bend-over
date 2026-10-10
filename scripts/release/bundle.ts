@@ -55,7 +55,7 @@ export async function bundle(id: string, c: Omit<Candidate,"assets">, source: st
       files["serve.js"]=Buffer.from(Buffer.from(files["serve.js"]).toString().replace("if(path===root)path=resolve(root,'web/index.html');","if(path===root||path===resolve(root,'web'))path=resolve(root,'web/index.html');"));
       put("QUICKSTART.md",`# ${c.name} ${c.version}\n\nExtract this archive anywhere. Requires Bun ${c.toolchain.bun}; no npm install.\n\n- Run: \`bun launch.js counter.js\`\n- Browser: \`bun serve.js\`, then open http://127.0.0.1:3001/web/\n- Your compiled Bend program: \`bun launch.js /path/to/program.js\`\n- Bun initializer: import \`initializeSQLite\` from \`./bun.js\`.\n- Browser worker initializer: import it from \`./browser.js\` and pass \`{persistent:true}\`.\n\nBend import: \`import ${c.name}@${c.version}/${c.entry} as SQLite\`\nHash alternative: \`import ${hash}/${c.entry} as SQLite\`\n\nKeep vendor assets beside the initializer modules and serve them locally. See README.md for API and host differences.\n`);
     } else {
-      put("example.bend",consumerSource(await Bun.file(join(ROOT,"packages/js-eval/example.bend")).text(),`${c.name}@${c.version}`,c.entry));
+      put("example.bend",consumerSource(await Bun.file(join(ROOT,`packages/${id}/example.bend`)).text(),`${c.name}@${c.version}`,c.entry));
     }
     const name=`${c.name}-${c.version}.tar.gz`;
     const bytes=deterministicArchive(files);

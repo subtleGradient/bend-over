@@ -1,7 +1,7 @@
 # bend-over
 
-Reusable Bend 2 packages for working with SQLite and JavaScript, with native,
-Bun, and browser examples.
+Reusable Bend 2 packages for working with SQLite, JavaScript, and math, with
+native, Bun, and browser examples.
 
 ## Packages
 
@@ -9,6 +9,7 @@ Bun, and browser examples.
 | --- | --- | --- |
 | [SQLite](packages/sqlite/README.md) | Native SQLite and JavaScript/Wasm with prepared statements, transactions, import/export, and persistent browser storage. | [bend-over-sqlite](https://hub.bend-lang.com/n/bend-over-sqlite) |
 | [JavaScript evaluation](packages/js-eval/README.md) | Evaluate JavaScript from Bend and return typed JSON results. | [bend-over-js-eval](https://hub.bend-lang.com/n/bend-over-js-eval) |
+| [Math DSL](packages/math-dsl/README.md) | Initial math package scaffold with a squared-value example. | `bend-over-math-dsl` |
 
 Each package README covers installation, API usage, examples, and platform
 requirements. The supporting [browser IO runner](packages/browser-io/) runs
@@ -21,6 +22,7 @@ SQLite companion archive.
   persistent browser counter.
 - [JavaScript evaluation example](packages/js-eval/example.bend): evaluate an
   expression and handle its result.
+- [Math DSL example](packages/math-dsl/example.bend): square a value.
 - [Browser effects demo](demos/js-effects/): Bend calling browser APIs, with a
   live trace of effect arguments, results, and failures.
 

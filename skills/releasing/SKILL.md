@@ -21,6 +21,7 @@ fresh consumers, releases the companion assets, and finally attaches the Hub nam
 | Package | Hub import |
 |---|---|
 | JavaScript evaluation | `import bend-over-js-eval@0.1.0.1/js.bend as JS` |
+| Math DSL | `import bend-over-math-dsl@0.1.0.0/math.bend as Math` |
 | SQLite | `import bend-over-sqlite@0.1.0.1/sqlite.bend as SQLite` |
 
 Names and versions are immutable release coordinates. `VERSION` contains four
@@ -37,7 +38,7 @@ bun run toolchain:install
 # The installer prints BEND_SOURCE, BEND_CLI and PATH for local use.
 # GitHub Actions receives these automatically.
 bunx --no-install playwright install --with-deps chromium
-bun run release:check             # both packages
+bun run release:check             # all packages
 bun run release:check sqlite      # one package
 ```
 
